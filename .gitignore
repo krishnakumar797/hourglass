@@ -1,0 +1,12 @@
+# VSCode
+
+
+# Compiled class file
+*.class
+
+# misc
+*.log
+log/
+logs/
+node_modules
+.next
