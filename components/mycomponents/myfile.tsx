@@ -20,30 +20,41 @@ interface Variables {
     first: number;
 };
 
-export default class MyFile extends React.Component {
+export default class ReadName extends React.Component {
 
     render() {
         return <Query<Data, Variables> client={client} query={query} fetchPolicy={'cache-and-network'}>
-            {({ loading, data, error }) => {
-                if (loading) {
-                    return (<div>Loading..</div>);
-                }
-                if (error) {
-                    return (<div>Error..</div>);
-                }
-                return (
-                    <div>
-                        <h1>My Authors </h1>
-                        <div>
-                            {data.profile && data.profile.map((a, i) => (
-                                <div key={i}>
-                                    <h2>{a.name}</h2>
-                                </div>
-                            ))}
-                        </div>
+            {
+                ({ loading, data, error }) => <MyFile loading={loading} data={data} error={error}></MyFile>
+
+            }
+        </Query>
+    }
+
+}
+
+class MyFile extends React.Component<any, { loading: string, data: Data, error: string }> {
+
+    constructor(props) {
+        super(props)
+    }
+
+    render() {
+        if (this.props.loading) {
+            return (<div>Loading..</div>);
+        }
+        if (this.props.error) {
+            return (<div>Error..</div>);
+        }
+        return <div>
+            <h1>My Authors </h1>
+            <div>
+                {this.props.data.profile && this.props.data.profile.map((a, i) => (
+                    <div key={i}>
+                        <h2>{a.name}</h2>
                     </div>
-                );
-            }}
-        </Query>;
+                ))}
+            </div>
+        </div>
     }
 }

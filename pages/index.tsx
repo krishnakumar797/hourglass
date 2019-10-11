@@ -2,11 +2,10 @@ import React from 'react';
 import Header from '../components/common/header';
 import LoginService from '../services/login/loginservice';
 import Layout from '../components/common/layout';
-import MyFile from '../components/mycomponents/myfile';
-import TestFile from '../components/mycomponents/testfile';
 import AddName from '../components/mycomponents/testfile';
+import ReadName from '../components/mycomponents/myfile';
 
-class Main extends React.Component<{ userAgent: string }, { name: string }> {
+export default class Main extends React.Component<{ userAgent: string }, { name: string }> {
 
   constructor(props){
     super(props);
@@ -32,14 +31,12 @@ class Main extends React.Component<{ userAgent: string }, { name: string }> {
       <Header></Header>
       <Layout>
       Hello World {this.props.userAgent}
-      <button onClick={this.checkLogin.bind(this)}>Submit</button>
+      <button onClick={evt => this.checkLogin()}>Submit</button>
        {this.state.name}
-       <MyFile></MyFile>
+       <a href="/projects/newproject">here</a>
+       <ReadName></ReadName>
        <AddName></AddName>
        </Layout>
       </div>;
   }
 }
-
-export default Main;
-  

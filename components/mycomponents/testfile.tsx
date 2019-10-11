@@ -16,7 +16,6 @@ mutation insertProfile($objects: [profile_insert_input!]! ) {
 
 export default class AddName extends React.Component {
 
-
     render() {
         return <Mutation client={client} mutation={query}>
             {
