@@ -1,0 +1,4 @@
+https://golb.hplar.ch/2018/12/background-sync-ng.html
+https://github.com/ralscha/blog/tree/master/background-sync/client
+https://dexie.org/
+https://angular.io/guide/service-worker-getting-started
